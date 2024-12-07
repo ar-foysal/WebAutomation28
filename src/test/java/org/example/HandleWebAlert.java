@@ -2,6 +2,7 @@ package org.example;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 public class HandleWebAlert extends DriverSetup{
@@ -28,8 +29,8 @@ public class HandleWebAlert extends DriverSetup{
         alert.dismiss();
 
         Thread.sleep(2000);
-
-        driver.findElement(By.xpath("//button[@onclick='jsPrompt()']")).click();
+        By jsPrompt = By.xpath("//button[@onclick='jsPrompt()']");
+        driver.findElement(jsPrompt).click();
         alert = driver.switchTo().alert();
         Thread.sleep(2000);
         System.out.println(alert.getText());
@@ -39,7 +40,7 @@ public class HandleWebAlert extends DriverSetup{
         alert.accept();
 
         Thread.sleep(2000);
-
-
     }
+
+
 }
